@@ -26,6 +26,7 @@ Commands:
   fetch    Download objects and refs from another repository
   pull     Fetch from and integrate with another repository or a local branch
   remote   Manage set of tracked repositories
+  stash    Stash the changes in a dirty working directory away
   help     Print this message or the help of the given subcommand(s)
 
 Options:

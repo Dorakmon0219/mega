@@ -61,6 +61,8 @@ enum Commands {
     Pull(command::pull::PullArgs),
     #[command(about = "Show different between files")]
     Diff(command::diff::DiffArgs),
+    #[command(about = "Stash the changes in a dirty working directory away")]
+    Stash(command::stash::StashArgs),
 
     #[command(subcommand, about = "Manage set of tracked repositories")]
     Remote(command::remote::RemoteCmds),
@@ -126,6 +128,7 @@ pub async fn parse_async(args: Option<&[&str]>) -> Result<(), GitError> {
         Commands::Pull(args) => command::pull::execute(args).await,
         Commands::Config(args) => command::config::execute(args).await,
         Commands::Checkout(args) => command::checkout::execute(args).await,
+        Commands::Stash(args) => command::stash::execute(args).await,
     }
     Ok(())
 }
